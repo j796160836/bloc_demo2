@@ -1,6 +1,6 @@
 # bloc_demo2
 
-A new Flutter project.
+A demo about bloc pattern with a continuous number generator.
 
 ## Getting Started
 
