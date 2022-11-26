@@ -31,6 +31,7 @@ class NumberLoop implements NumberLoopInterface {
     }
   }
 
+  // 另一個寫法
   // @override
   // Stream<int> numberLoop() {
   //   _isCancelled = false;

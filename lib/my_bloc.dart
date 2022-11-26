@@ -46,6 +46,11 @@ class MyBloc extends Bloc<MyBlocEvent, MyBlocState> {
         return;
       }
       Stream<int> stream = numberLoop.numberLoop();
+      // ========== 錯誤寫法 ==========
+      // stream.listen((event) {
+      //   emit(NumberState(event));
+      // });
+      // =============================
       await for (var event in stream) {
         emit(NumberState(event));
       }
@@ -56,11 +61,3 @@ class MyBloc extends Bloc<MyBlocEvent, MyBlocState> {
     });
   }
 }
-
-
-
-// ========== 錯誤寫法 ==========
-// stream.listen((event) {
-//   emit(NumberState(event));
-// });
-// =============================

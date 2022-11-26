@@ -3,11 +3,6 @@ import 'package:bloc_demo2/number_loop.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-// import 'package:mockito/annotations.dart';
-// import 'package:mockito/mockito.dart';
-//
-// import 'unit_test.mocks.dart';
-
 class StubNumberLoop implements NumberLoopInterface {
   List<int> numbers;
 
@@ -27,26 +22,13 @@ class StubNumberLoop implements NumberLoopInterface {
   }
 }
 
-// @GenerateMocks([Random, NumberLoop])
 void main() {
-  // test('test random', () {
-  //   MockRandom mockRandom = MockRandom();
-  //   when(mockRandom.nextInt(any)).thenReturn(7);
-  //   expect(mockRandom.nextInt(100), 7);
-  // });
-
-  // test('test NumberLoop', () {
-  //   var loop = MockNumberLoop();
-  //   when(loop.numberLoop()).thenAnswer((_) => Stream.fromIterable([1, 2, 3]));
-  //   expect(loop.numberLoop(), emitsInOrder([1, 2, 3]));
-  // });
-
   test('test NumberLoop', () {
     var loop = StubNumberLoop(numbers: [1, 2, 3]);
     expect(loop.numberLoop(), emitsInOrder([1, 2, 3]));
   });
 
-  test('test mybloc', () {
+  test('test MyBloc', () {
     var bloc = MyBloc(numberLoop: StubNumberLoop(numbers: [1, 2, 3]));
     bloc.add(StartGettingNumberEvent());
     expectLater(bloc.stream,
